@@ -16,8 +16,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-    <img src="/img/logo e-mercado.png" alt="e-mercado" style="height:40px;">
-    </a>
+      <img src="/img/logo e-mercado.png" alt="e-mercado" style="height:40px;">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,16 +34,57 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-             <a class="nav-link" href="my-profile.html">Perfil</a>
+            <a class="nav-link" href="cart.html">Carrito
+              <span id="cart-count" class="badge bg-danger rounded-pill ms-1 d-none">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="my-profile.html"><div id="mostrar-usuario"></div></a>
           </li>
         </ul>
+         <!-- Switch de modo oscuro/claro -->
+        <div class="position-fixed top-0 end-0 m-3 d-flex align-items-center">
+        <div class="form-check form-switch">    
+            <input class="form-check-input" type="checkbox" role="switch" id="modoSwitch">
+            <label class="form-check-label ms-1" for="modoSwitch" id="modoIcono">🌞</label>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
-  <main class="pb-5 container">
-     <div class="row" id="product-list">
+
+  <main class="container mt-5">
+    <div class="card p-3 mb-4">
+    <form id="filter-form" class="row g-3 align-items-center">
+      
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="inputBusqueda" placeholder="Buscar producto...">
+      </div>
+
+      <div class="col-md-2">
+        <input type="number" class="form-control" id="precioMin" placeholder="Precio mín.">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" id="precioMax" placeholder="Precio máx.">
+      </div>
+
+      <div class="col-md-1 d-grid">
+        <button type="button" id="btnFiltrar" class="btn btn-primary">Filtrar</button>
+      </div>
+    </form>
+
+  
+    <div class="mt-3">
+      <button class="btn btn-outline-secondary btn-sm" id="btnSortAsc">Ordenar ↑ Precio</button>
+      <button class="btn btn-outline-secondary btn-sm" id="btnSortDesc">Ordenar ↓ Precio</button>
     </div>
+  </div>
+
+  <div class="row" id="product-list">
+  </div>
+  
   </main>
+
   <footer class="text-muted border-top pt-3">
     <div class="container d-flex justify-content-between align-items-center">
       <p class="float-end">
@@ -52,7 +93,7 @@
           <img src="/img/JAP.png" alt="Jóvenes a Programar" style="height:25px; margin-left:5px;">
         </a>
       </p>
-      <p class="float-end">
+      <p class="float-end volver-arriba">
         <a href="#">Volver Arriba</a>
       </p>
     </div>
